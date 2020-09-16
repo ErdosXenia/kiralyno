@@ -48,6 +48,8 @@ namespace kiralyno
               - elhelyezzük a 'K'-t csak akkor ha üres -> "#" 
             */
 
+            //Házi: N db királynő elhelyezése
+
             Random rnd = new Random();
             int sor = rnd.Next(0, 8);
             int oszlop = rnd.Next(0, 8);
