@@ -53,6 +53,8 @@ namespace kiralyno
             Random rnd = new Random();
             int sor = rnd.Next(0, 8);
             int oszlop = rnd.Next(0, 8);
+
+
             
             if (T[sor,oszlop] == '#')
             {
@@ -91,9 +93,15 @@ namespace kiralyno
             Console.WriteLine("Üres tábla:");
             t.Megjelenit();
 
-            t.Elhelyez(1);
-            Console.WriteLine();
-            t.Megjelenit();
+            Random db = new Random();
+            int szam = db.Next(0, 8);
+            for (int i = 0; i < 8; i++)
+            {
+                t.Elhelyez(szam);
+                Console.WriteLine();
+                t.Megjelenit();
+            }
+            
 
             Console.ReadKey();
         }
