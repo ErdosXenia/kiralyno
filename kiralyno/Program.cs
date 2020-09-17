@@ -51,15 +51,20 @@ namespace kiralyno
             //Házi: N db királynő elhelyezése
 
             Random rnd = new Random();
-            int sor = rnd.Next(0, 8);
-            int oszlop = rnd.Next(0, 8);
-
-
-            
-            if (T[sor,oszlop] == '#')
+            for (int i = 0; i < N; i++)
             {
+                int sor = rnd.Next(0, 8);
+                int oszlop = rnd.Next(0, 8);
+
+                while (T[sor, oszlop] == 'K')
+                {
+                    sor = rnd.Next(0, 8);
+                    oszlop = rnd.Next(0, 8);
+                }
                 T[sor, oszlop] = 'K';
+
             }
+            
         }
 
         public void FajlbaIr()
@@ -93,14 +98,9 @@ namespace kiralyno
             Console.WriteLine("Üres tábla:");
             t.Megjelenit();
 
-            Random db = new Random();
-            int szam = db.Next(0, 8);
-            for (int i = 0; i < 8; i++)
-            {
-                t.Elhelyez(szam);
-                Console.WriteLine();
-                t.Megjelenit();
-            }
+            t.Elhelyez(8);
+            Console.WriteLine();
+            t.Megjelenit();
             
 
             Console.ReadKey();
