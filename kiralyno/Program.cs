@@ -76,14 +76,25 @@ namespace kiralyno
 
 
 
-        public int UresOszlop()
+        public bool UresOszlop(int oszlop)
         {
-            return 0;
+            int j = 0;
+            for (int i = 0; i < oszlop; i++)
+            {
+                while (j < oszlop && T[j, oszlop] != 'K')
+                {
+                    if (j < oszlop)
+                    {
+                        return true;
+                    }
+                }
+            }
+            
         }
 
-        public int UresSor()
+        public bool UresSor(int sor)
         {
-            return 0;
+            
         }
     }
 
