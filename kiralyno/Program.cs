@@ -67,34 +67,44 @@ namespace kiralyno
             
         }
 
-        public void FajlbaIr()
-        {
-
-        }
-
-        
-
-
-
         public bool UresOszlop(int oszlop)
         {
-            int j = 0;
-            for (int i = 0; i < oszlop; i++)
+            int i = 0;
+            while ( i< 8 && T[i,oszlop] != 'K')
             {
-                while (j < oszlop && T[j, oszlop] != 'K')
-                {
-                    if (j < oszlop)
-                    {
-                        return true;
-                    }
-                }
+                i++;
+            }
+            if (i<8)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
             
         }
 
         public bool UresSor(int sor)
         {
-            
+            int i = 0;
+            while (i < 8 && T[sor,i] != 'K')
+            {
+                i++;
+            }
+            if (i < 8)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public void FajlbaIr()
+        {
+
         }
     }
 
@@ -112,7 +122,18 @@ namespace kiralyno
             t.Elhelyez(8);
             Console.WriteLine();
             t.Megjelenit();
-            
+
+            Console.Write("Melyik sor: ");
+            int sor = int.Parse(Console.ReadLine());
+
+            if (t.UresOszlop(sor))
+            {
+                Console.WriteLine("A megadott sor üres.");
+            }
+            else
+            {
+                Console.WriteLine("A megadott sor nem üres.");
+            }
 
             Console.ReadKey();
         }
