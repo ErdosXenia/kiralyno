@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace kiralyno
 {
@@ -102,9 +103,17 @@ namespace kiralyno
             }
         }
 
-        public void FajlbaIr()
+        public void FajlbaIr(StreamWriter fajl)
         {
-
+            for (int i = 0; i < 8; i++)
+            {
+                string sor = "";
+                for (int j = 0; j < 8; j++)
+                {
+                    sor += T[i, j];
+                }
+                fajl.WriteLine(sor);
+            }
         }
     }
 
@@ -115,6 +124,7 @@ namespace kiralyno
             Console.WriteLine("Királynő feladat");
 
             tabla t = new tabla('#');
+            tabla[] tablak = new tabla[64]; 
 
             Console.WriteLine("Üres tábla:");
             t.Megjelenit();
@@ -136,10 +146,8 @@ namespace kiralyno
             }*/
 
             Console.WriteLine("8. feladat: Az üres oszlopok és sorok száma:");
-
             int uresSor = 0;
             int uresOszlop = 0;
-
             for (int i = 0; i < 8; i++)
             {
                 if (t.UresOszlop(i))
@@ -154,6 +162,20 @@ namespace kiralyno
             Console.WriteLine("Üres sorok száma: {0}", uresSor);
             Console.WriteLine("Üres oszlopok száma: {0}", uresOszlop);
 
+            StreamWriter sw = new StreamWriter("adatok.txt");
+            for (int i = 0; i < 64; i++)
+            {
+                tablak[i] = new tabla('*');
+            }
+
+            for (int i = 0; i < 64; i++)
+            {
+                tablak[i].Elhelyez(i + 1);
+                tablak[i].FajlbaIr(sw);
+                sw.WriteLine();
+            }
+
+            sw.Close();
 
             Console.ReadKey();
         }
