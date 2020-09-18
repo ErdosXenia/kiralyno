@@ -123,7 +123,7 @@ namespace kiralyno
             Console.WriteLine();
             t.Megjelenit();
 
-            Console.Write("Melyik sor: ");
+            /*Console.Write("Melyik sor: ");
             int sor = int.Parse(Console.ReadLine());
 
             if (t.UresOszlop(sor))
@@ -133,7 +133,27 @@ namespace kiralyno
             else
             {
                 Console.WriteLine("A megadott sor nem üres.");
+            }*/
+
+            Console.WriteLine("8. feladat: Az üres oszlopok és sorok száma:");
+
+            int uresSor = 0;
+            int uresOszlop = 0;
+
+            for (int i = 0; i < 8; i++)
+            {
+                if (t.UresOszlop(i))
+                {
+                    uresOszlop++;
+                }
+                if (t.UresSor(i))
+                {
+                    uresSor++;
+                }   
             }
+            Console.WriteLine("Üres sorok száma: {0}", uresSor);
+            Console.WriteLine("Üres oszlopok száma: {0}", uresOszlop);
+
 
             Console.ReadKey();
         }
